@@ -26,8 +26,7 @@ package object Matrices {
   def multMatriz(m1: Matriz, m2: Matriz): Matriz = {
     val n = m1.length
     val mT = transpuesta(m2)
-    Vector.tabulate(n, n) { (i, j) => prodPunto(m1(i), mT(j))
-    }
+    Vector.tabulate(n, n) { (i, j) => prodPunto(m1(i), mT(j))}
   }
   //
   // Ejercicio 1.1.2
@@ -37,17 +36,16 @@ package object Matrices {
     Vector.tabulate(n, n) { (i, j) => prodPunto(m1(i), mT.join()(j))}
   }
   // task para tareas independientes o parallel si quiero dividir un trabajo
-  //    // Ejercicio 1.2.1
-  //    def subMatriz(m: Matriz, i: Int, j: Int, l: Int): Matriz = {
-  //      // Dada m, matriz cuadrada de NxN, 1<=i, j<=N, i+n<=N, j+n<=N,
-  //      // devuelve la submatriz de nxn correspondiente a m[i..i+(n−1), j..j+(n−1)]
-  //    }
-  //
-  //    // Ejercicio 1.2.2
-  //    def sumMatriz(m1: Matriz, m2: Matriz): Matriz = {
-  //      // recibe m1 y m2 matrices cuadradas del mismo tamaño, potencia de 2
-  //      // y devuelve la suma de las 2 matrices
-  //    }
+  // Ejercicio 1.2.1
+  def subMatriz(m: Matriz, i: Int, j: Int, l: Int): Matriz = {
+    Vector.tabulate(l,l){(a,b)=>m(i+a)(j+b)}.take(l)
+  }
+
+  // Ejercicio 1.2.2
+  def sumMatriz(m1: Matriz, m2: Matriz): Matriz = {
+    val n = m1.length
+    Vector.tabulate(n,n){(i,j)=>m1(i)(j)+m2(i)(j) }
+  }
   //
   //    // Ejercicio 1.2.3
   //    def multMatrizRec(m1: Matriz, m2: Matriz): Matriz = {
