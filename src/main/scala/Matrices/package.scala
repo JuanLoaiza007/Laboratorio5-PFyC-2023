@@ -1,4 +1,6 @@
 import scala.util.Random
+import common.{parallel, task}
+
 
 package object Matrices {
   val random = new Random()
@@ -21,13 +23,20 @@ package object Matrices {
   }
 
   //    // Ejercicio 1.1.1
-  //    def multMatriz(m1: Matriz, m2: Matriz): Matriz = {
-  //    }
+  def multMatriz(m1: Matriz, m2: Matriz): Matriz = {
+    val n = m1.length
+    val mT = transpuesta(m2)
+    Vector.tabulate(n, n) { (i, j) => prodPunto(m1(i), mT(j))
+    }
+  }
   //
-  //    // Ejercicio 1.1.2
-  //    def multMatrizPar(m1: Matriz, m2: Matriz): Matriz = {
-  //    }
-  //
+  // Ejercicio 1.1.2
+  def multMatrizPar(m1: Matriz, m2: Matriz): Matriz = {
+    val n = m1.length
+    val mT = task(transpuesta(m2))
+    Vector.tabulate(n, n) { (i, j) => prodPunto(m1(i), mT.join()(j))}
+  }
+  // task para tareas independientes o parallel si quiero dividir un trabajo
   //    // Ejercicio 1.2.1
   //    def subMatriz(m: Matriz, i: Int, j: Int, l: Int): Matriz = {
   //      // Dada m, matriz cuadrada de NxN, 1<=i, j<=N, i+n<=N, j+n<=N,
