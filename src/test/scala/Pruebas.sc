@@ -1,16 +1,18 @@
 import Matrices._
+import Benchmark._
 
-val m1= matrizAlAzar(3, 2)
-val m2= matrizAlAzar(3, 2)
+val m1= matrizAlAzar(2, 2)
+val m2= matrizAlAzar(2, 2)
 multMatriz(m1,m2)
 multMatrizPar (m1,m2)
-//Lo siguiente se puede borrar
-subMatriz(m1,1,1,2) // Prueba para ver si funciona
-sumMatriz(m1,m2) // Prueba para ver si funciona
-/*
+
 multMatrizRec (m1,m2)
 multMatrizRecPar (m1,m2)
 multStrassen (m1,m2)
 multStrassenPar(m1,m2)
 
- */
+for {
+  i <- 1 to 10
+  m1 = matrizAlAzar(math.pow(2, i).toInt, 2)
+  m2 = matrizAlAzar(math.pow(2, i).toInt, 2)
+} yield (compararAlgoritmos(multMatrizRec, multMatrizRecPar)(m1, m2), math.pow(2, i).toInt)
