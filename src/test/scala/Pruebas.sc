@@ -1,18 +1,101 @@
 import Matrices._
 import Benchmark._
 
-val m1= matrizAlAzar(2, 2)
-val m2= matrizAlAzar(2, 2)
-multMatriz(m1,m2)
-multMatrizPar (m1,m2)
-
-multMatrizRec (m1,m2)
-multMatrizRecPar (m1,m2)
-multStrassen (m1,m2)
-multStrassenPar(m1,m2)
+//
+// Pruebas con multMatriz y multMatrizPar
+//
+for {
+  i <- 1 to 10
+  m1 = matrizAlAzar(math.pow(2, i).toInt, 2)
+  m2 = matrizAlAzar(math.pow(2, i).toInt, 2)
+} yield println((compararAlgoritmos(multMatriz, multMatrizPar)(m1, m2), math.pow(2, i).toInt))
 
 for {
   i <- 1 to 10
   m1 = matrizAlAzar(math.pow(2, i).toInt, 2)
   m2 = matrizAlAzar(math.pow(2, i).toInt, 2)
-} yield (compararAlgoritmos(multMatrizRec, multMatrizRecPar)(m1, m2), math.pow(2, i).toInt)
+} yield println((compararAlgoritmos(multMatriz, multMatrizPar)(m1, m2), math.pow(2, i).toInt))
+
+for {
+  i <- 1 to 10
+  m1 = matrizAlAzar(math.pow(2, i).toInt, 2)
+  m2 = matrizAlAzar(math.pow(2, i).toInt, 2)
+} yield println((compararAlgoritmos(multMatriz, multMatrizPar)(m1, m2), math.pow(2, i).toInt))
+
+for {
+  i <- 1 to  10
+  m1 = matrizAlAzar(math.pow(2, i).toInt, 2)
+  m2 = matrizAlAzar(math.pow(2, i).toInt, 2)
+} yield println((compararAlgoritmos(multMatriz, multMatrizPar)(m1, m2), math.pow(2, i).toInt))
+
+for {
+  i <- 1 to 10
+  m1 = matrizAlAzar(math.pow(2, i).toInt, 2)
+  m2 = matrizAlAzar(math.pow(2, i).toInt, 2)
+} yield println((compararAlgoritmos(multMatriz, multMatrizPar)(m1, m2), math.pow(2, i).toInt))
+
+//
+// Pruebas con multMatrizRec y multMatrizRecPar
+//
+for {
+  i <- 1 to 9
+  m1 = matrizAlAzar(math.pow(2, i).toInt, 2)
+  m2 = matrizAlAzar(math.pow(2, i).toInt, 2)
+} yield println((compararAlgoritmos(multMatrizRec, multMatrizRecPar)(m1, m2), math.pow(2, i).toInt))
+
+for {
+  i <- 1 to 9
+  m1 = matrizAlAzar(math.pow(2, i).toInt, 2)
+  m2 = matrizAlAzar(math.pow(2, i).toInt, 2)
+} yield println((compararAlgoritmos(multMatrizRec, multMatrizRecPar)(m1, m2), math.pow(2, i).toInt))
+
+for {
+  i <- 1 to 9
+  m1 = matrizAlAzar(math.pow(2, i).toInt, 2)
+  m2 = matrizAlAzar(math.pow(2, i).toInt, 2)
+} yield println((compararAlgoritmos(multMatrizRec, multMatrizRecPar)(m1, m2), math.pow(2, i).toInt))
+
+for {
+  i <- 1 to 9
+  m1 = matrizAlAzar(math.pow(2, i).toInt, 2)
+  m2 = matrizAlAzar(math.pow(2, i).toInt, 2)
+} yield println((compararAlgoritmos(multMatrizRec, multMatrizRecPar)(m1, m2), math.pow(2, i).toInt))
+
+for {
+  i <- 1 to 9
+  m1 = matrizAlAzar(math.pow(2, i).toInt, 2)
+  m2 = matrizAlAzar(math.pow(2, i).toInt, 2)
+} yield println((compararAlgoritmos(multMatrizRec, multMatrizRecPar)(m1, m2), math.pow(2, i).toInt))
+
+//
+// Pruebas con multStrassen y multStrassenPar
+//
+for {
+  i <- 1 to 9
+  m1 = matrizAlAzar(math.pow(2, i).toInt, 2)
+  m2 = matrizAlAzar(math.pow(2, i).toInt, 2)
+} yield println((compararAlgoritmos(multStrassen, multStrassenPar)(m1, m2), math.pow(2, i).toInt))
+
+for {
+  i <- 1 to 9
+  m1 = matrizAlAzar(math.pow(2, i).toInt, 2)
+  m2 = matrizAlAzar(math.pow(2, i).toInt, 2)
+} yield println((compararAlgoritmos(multStrassen, multStrassenPar)(m1, m2), math.pow(2, i).toInt))
+
+for {
+  i <- 1 to 9
+  m1 = matrizAlAzar(math.pow(2, i).toInt, 2)
+  m2 = matrizAlAzar(math.pow(2, i).toInt, 2)
+} yield println((compararAlgoritmos(multStrassen, multStrassenPar)(m1, m2), math.pow(2, i).toInt))
+
+for {
+  i <- 1 to 9
+  m1 = matrizAlAzar(math.pow(2, i).toInt, 2)
+  m2 = matrizAlAzar(math.pow(2, i).toInt, 2)
+} yield println((compararAlgoritmos(multStrassen, multStrassenPar)(m1, m2), math.pow(2, i).toInt))
+
+for {
+  i <- 1 to 9
+  m1 = matrizAlAzar(math.pow(2, i).toInt, 2)
+  m2 = matrizAlAzar(math.pow(2, i).toInt, 2)
+} yield println((compararAlgoritmos(multStrassen, multStrassenPar)(m1, m2), math.pow(2, i).toInt))
